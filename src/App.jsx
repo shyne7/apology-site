@@ -95,7 +95,7 @@ function App() {
         <section className="intro-screen">
 
           <div className="intro-small">
-            hey, Aditi
+            bhai, Aditi heavy mistake ho gyi 😭
           </div>
 
           <h1>
@@ -163,7 +163,7 @@ function App() {
               className="yes"
               onClick={() => setForgiven(true)}
             >
-              Yes ❤️
+              Yes 😇
             </button>
 
             <button
@@ -198,11 +198,12 @@ function App() {
           </div>
 
           <h1>
-            YOU FORGAVE ME?
+            thank you maafi ke liye 🙏
           </h1>
 
           <p className="forgiven-message">
-            abse se ulta bakwaas nhi karunga aai sapat
+            abse se ulta bakwaas nhi karunga 
+            mummy kasam..!
           </p>
 
           {/* ================= CAT VIDEO ================= */}
