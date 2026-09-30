@@ -12,9 +12,8 @@ function App() {
 
   const audioRef = useRef(null);
 
-  // Try to start music immediately when the site opens.
-  // If the browser blocks autoplay, the first click/tap anywhere
-  // on the page will start it.
+  // ================= MUSIC =================
+
   useEffect(() => {
     const startMusic = () => {
       if (!audioRef.current) return;
@@ -22,26 +21,29 @@ function App() {
       audioRef.current.volume = 0.45;
 
       audioRef.current.play().catch(() => {
-        // Browser blocked autoplay.
-        // The next user interaction will try again.
+        // Browser may block autoplay.
+        // Any click/tap will try again.
       });
     };
 
-    // Try immediately
+    // Try to start immediately when the site opens
     startMusic();
 
-    // Fallback for browsers that block autoplay with sound
-    window.addEventListener("click", startMusic, { once: true });
-    window.addEventListener("touchstart", startMusic, { once: true });
+    // If autoplay is blocked, ANY interaction starts the music
+    window.addEventListener("click", startMusic);
+    window.addEventListener("touchstart", startMusic);
+    window.addEventListener("keydown", startMusic);
 
     return () => {
       window.removeEventListener("click", startMusic);
       window.removeEventListener("touchstart", startMusic);
+      window.removeEventListener("keydown", startMusic);
     };
   }, []);
 
+  // ================= OPEN EXPERIENCE =================
+
   const startExperience = () => {
-    // Make absolutely sure music starts when Open is clicked
     if (audioRef.current) {
       audioRef.current.volume = 0.45;
 
@@ -50,6 +52,8 @@ function App() {
 
     setStarted(true);
   };
+
+  // ================= NO BUTTON =================
 
   const moveNoButton = () => {
     const top = Math.floor(Math.random() * 55) + 35;
