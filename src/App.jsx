@@ -22,14 +22,14 @@ function App() {
 
       audioRef.current.play().catch(() => {
         // Browser may block autoplay.
-        // Any click/tap will try again.
+        // Any interaction will try again.
       });
     };
 
-    // Try to start immediately when the site opens
+    // Try to start music immediately when the site opens
     startMusic();
 
-    // If autoplay is blocked, ANY interaction starts the music
+    // Fallback if browser blocks autoplay
     window.addEventListener("click", startMusic);
     window.addEventListener("touchstart", startMusic);
     window.addEventListener("keydown", startMusic);
@@ -46,7 +46,6 @@ function App() {
   const startExperience = () => {
     if (audioRef.current) {
       audioRef.current.volume = 0.45;
-
       audioRef.current.play().catch(() => {});
     }
 
@@ -90,7 +89,7 @@ function App() {
       <div className="floating-heart heart-three">♡</div>
       <div className="floating-heart heart-four">♡</div>
 
-      {/* ================= INTRO SCREEN ================= */}
+      {/* ================= INTRO ================= */}
 
       {!started ? (
         <section className="intro-screen">
@@ -130,7 +129,7 @@ function App() {
 
       ) : !forgiven ? (
 
-        /* ================= APOLOGY SCREEN ================= */
+        /* ================= APOLOGY ================= */
 
         <section className="card apology-card">
 
@@ -186,7 +185,7 @@ function App() {
 
       ) : (
 
-        /* ================= FORGIVEN SCREEN ================= */
+        /* ================= FORGIVEN ================= */
 
         <section className="card forgiven">
 
@@ -206,8 +205,17 @@ function App() {
             abse se ulta bakwaas nhi karunga aai sapat
           </p>
 
-          <div className="big-heart">
-            ❤️
+          {/* ================= CAT VIDEO ================= */}
+
+          <div className="cat-video-wrapper">
+            <video
+              className="cat-video"
+              src="/cat.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
           </div>
 
           <p className="small-text">
