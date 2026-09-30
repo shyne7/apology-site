@@ -1,0 +1,815 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #080b18;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 24px;
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(214, 51, 108, 0.22),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(80, 70, 180, 0.18),
+      transparent 38%
+    ),
+    #080b18;
+}
+
+/* =========================================
+   BACKGROUND GLOW
+========================================= */
+
+.background-glow {
+  position: absolute;
+
+  width: 550px;
+  height: 550px;
+
+  border-radius: 50%;
+
+  filter: blur(130px);
+
+  pointer-events: none;
+}
+
+.glow-one {
+  background: rgba(220, 45, 110, 0.13);
+
+  top: -280px;
+  left: -180px;
+}
+
+.glow-two {
+  background: rgba(100, 70, 220, 0.11);
+
+  bottom: -280px;
+  right: -180px;
+}
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+.floating-heart {
+  position: absolute;
+
+  color: rgba(255, 92, 145, 0.18);
+
+  font-size: 45px;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.heart-one {
+  top: 18%;
+  left: 12%;
+
+  animation: driftOne 7s ease-in-out infinite;
+}
+
+.heart-two {
+  bottom: 20%;
+  right: 13%;
+
+  font-size: 30px;
+
+  animation: driftTwo 9s ease-in-out infinite;
+}
+
+.heart-three {
+  top: 30%;
+  right: 20%;
+
+  font-size: 20px;
+
+  animation: driftThree 6s ease-in-out infinite;
+}
+
+.heart-four {
+  bottom: 15%;
+  left: 22%;
+
+  font-size: 25px;
+
+  animation: driftFour 8s ease-in-out infinite;
+}
+
+/* =========================================
+   INTRO SCREEN
+========================================= */
+
+.intro-screen {
+  width: min(900px, 92vw);
+
+  text-align: center;
+
+  position: relative;
+  z-index: 2;
+
+  animation: introAppear 1s ease;
+}
+
+.intro-small {
+  color: #ff6d9c;
+
+  font-size: 17px;
+
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 32px;
+}
+
+.intro-screen h1 {
+  margin: 0;
+
+  color: #ff5c91;
+
+  font-size: clamp(58px, 8vw, 100px);
+
+  font-weight: 700;
+
+  line-height: 1.05;
+
+  letter-spacing: -4px;
+
+  text-shadow:
+    0 0 25px rgba(255, 92, 145, 0.25);
+}
+
+.intro-screen p {
+  margin: 32px 0 0;
+
+  color: #c8cad5;
+
+  font-size: 22px;
+
+  line-height: 1.8;
+}
+
+/* =========================================
+   OPEN BUTTON
+========================================= */
+
+.open-button {
+  margin-top: 42px;
+
+  padding: 18px 34px;
+
+  background: #e83f78;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 999px;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 35px rgba(232, 63, 120, 0.35);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.open-button:hover {
+  transform: translateY(-4px) scale(1.04);
+
+  box-shadow:
+    0 18px 50px rgba(232, 63, 120, 0.5);
+}
+
+.open-button span {
+  margin-left: 8px;
+}
+
+/* =========================================
+   MUSIC HINT
+========================================= */
+
+.music-hint {
+  margin-top: 32px;
+
+  color: #ff8caf;
+
+  font-size: 14px;
+
+  letter-spacing: 0.8px;
+
+  opacity: 0;
+
+  animation:
+    musicHintAppear
+    1s ease
+    1.2s
+    forwards;
+
+  text-shadow:
+    0 0 18px rgba(255, 92, 145, 0.25);
+}
+
+.music-hint::after {
+  content: "";
+
+  display: block;
+
+  width: 45px;
+
+  height: 1px;
+
+  margin: 10px auto 0;
+
+  background: rgba(255, 92, 145, 0.35);
+}
+
+/* =========================================
+   SCROLL HINT
+========================================= */
+
+.scroll-hint {
+  margin-top: 55px;
+
+  color: #62677c;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   MAIN CARD
+========================================= */
+
+.card {
+  width: min(680px, 94vw);
+
+  min-height: 570px;
+
+  padding: 65px 60px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  background: rgba(18, 22, 42, 0.9);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 32px;
+
+  box-shadow:
+    0 35px 110px rgba(0, 0, 0, 0.55),
+    0 0 60px rgba(214, 51, 108, 0.08);
+
+  backdrop-filter: blur(22px);
+
+  position: relative;
+
+  z-index: 2;
+
+  animation: appear 0.8s ease;
+}
+
+/* =========================================
+   EMOJI
+========================================= */
+
+.emoji {
+  font-size: 68px;
+
+  line-height: 1;
+
+  margin-bottom: 28px;
+
+  animation:
+    float
+    2.5s
+    ease-in-out
+    infinite;
+}
+
+/* =========================================
+   EYEBROW
+========================================= */
+
+.eyebrow {
+  color: #ff6d9c;
+
+  text-transform: uppercase;
+
+  letter-spacing: 4px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  margin-bottom: 24px;
+}
+
+/* =========================================
+   APOLOGY SCREEN
+========================================= */
+
+.apology-card h2 {
+  margin: 0;
+
+  max-width: 100%;
+
+  color: #f5f5f7;
+
+  font-size: clamp(48px, 7vw, 76px);
+
+  line-height: 1.05;
+
+  letter-spacing: -3px;
+}
+
+.main-message {
+  margin: 30px 0 0;
+
+  color: #c8cad5;
+
+  font-size: 21px;
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.divider {
+  width: 140px;
+
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  position: relative;
+
+  margin: 38px 0 22px;
+}
+
+.divider span {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  background: #12162a;
+
+  padding: 0 14px;
+
+  color: #ff5c91;
+
+  font-size: 18px;
+}
+
+/* =========================================
+   SMALL TEXT
+========================================= */
+
+.small-text {
+  margin: 0;
+
+  color: #85899d;
+
+  font-size: 16px;
+}
+
+/* =========================================
+   BUTTON AREA
+========================================= */
+
+.buttons {
+  width: 100%;
+
+  height: 175px;
+
+  margin-top: 30px;
+
+  position: relative;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button {
+  border: none;
+
+  cursor: pointer;
+
+  padding: 16px 28px;
+
+  border-radius: 999px;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.06);
+}
+
+/* =========================================
+   YES BUTTON
+========================================= */
+
+.yes {
+  position: absolute;
+
+  top: 35%;
+  left: 35%;
+
+  background: #e83f78;
+
+  color: white;
+
+  box-shadow:
+    0 12px 32px rgba(232, 63, 120, 0.35),
+    0 0 25px rgba(232, 63, 120, 0.12);
+}
+
+/* =========================================
+   NO BUTTON
+========================================= */
+
+.no {
+  position: absolute;
+
+  background: #24283d;
+
+  color: #aaaebe;
+
+  transform:
+    translate(-50%, -50%);
+
+  transition:
+    top 0.18s ease,
+    left 0.18s ease,
+    transform 0.15s ease;
+}
+
+.no:hover {
+  transform:
+    translate(-50%, -50%)
+    scale(1.05);
+}
+
+/* =========================================
+   FORGIVEN SCREEN
+========================================= */
+
+.forgiven {
+  justify-content: center;
+
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.forgiven .emoji {
+  margin-bottom: 25px;
+}
+
+.forgiven .eyebrow {
+  margin-bottom: 28px;
+}
+
+.forgiven h1 {
+  margin: 0;
+
+  color: #ff5c91;
+
+  font-size: clamp(42px, 7vw, 68px);
+
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+
+  text-shadow:
+    0 0 25px rgba(255, 92, 145, 0.3);
+}
+
+.forgiven-message {
+  margin: 30px 0 0;
+
+  max-width: 500px;
+
+  color: #c8cad5;
+
+  font-size: 20px;
+
+  line-height: 1.8;
+}
+
+.big-heart {
+  font-size: 95px;
+
+  line-height: 1;
+
+  margin: 38px 0;
+
+  animation:
+    heartbeat
+    1s
+    infinite;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(30px)
+      scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+@keyframes introAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+@keyframes musicHintAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-10px);
+  }
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform:
+      scale(1);
+  }
+
+  50% {
+    transform:
+      scale(1.15);
+  }
+}
+
+@keyframes driftOne {
+  0%,
+  100% {
+    transform:
+      translate(0, 0)
+      rotate(-10deg);
+  }
+
+  50% {
+    transform:
+      translate(20px, -30px)
+      rotate(10deg);
+  }
+}
+
+@keyframes driftTwo {
+  0%,
+  100% {
+    transform:
+      translate(0, 0);
+  }
+
+  50% {
+    transform:
+      translate(-25px, -20px);
+  }
+}
+
+@keyframes driftThree {
+  0%,
+  100% {
+    transform:
+      translate(0, 0);
+  }
+
+  50% {
+    transform:
+      translate(15px, 25px);
+  }
+}
+
+@keyframes driftFour {
+  0%,
+  100% {
+    transform:
+      translate(0, 0);
+  }
+
+  50% {
+    transform:
+      translate(-20px, -25px);
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .page {
+    padding: 25px 16px;
+  }
+
+  .intro-small {
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+  }
+
+  .intro-screen h1 {
+    font-size:
+      clamp(
+        48px,
+        14vw,
+        72px
+      );
+
+    letter-spacing: -2px;
+
+    line-height: 1.05;
+  }
+
+  .intro-screen p {
+    font-size: 18px;
+
+    margin-top: 25px;
+  }
+
+  .open-button {
+    margin-top: 32px;
+
+    font-size: 16px;
+  }
+
+  .music-hint {
+    font-size: 13px;
+
+    margin-top: 25px;
+  }
+
+  .scroll-hint {
+    margin-top: 45px;
+  }
+
+  .card {
+    width: 100%;
+
+    min-height: 550px;
+
+    padding: 52px 24px;
+
+    border-radius: 27px;
+  }
+
+  .emoji {
+    font-size: 56px;
+  }
+
+  .apology-card h2 {
+    font-size: 52px;
+
+    letter-spacing: -2px;
+  }
+
+  .main-message {
+    font-size: 18px;
+  }
+
+  .buttons {
+    height: 160px;
+  }
+
+  .yes {
+    left: 30%;
+  }
+
+  .forgiven {
+    min-height: 560px;
+  }
+
+  .forgiven h1 {
+    font-size: 42px;
+
+    letter-spacing: -1px;
+  }
+
+  .forgiven-message {
+    font-size: 17px;
+
+    line-height: 1.7;
+  }
+
+  .big-heart {
+    font-size: 78px;
+
+    margin: 30px 0;
+  }
+
+  .floating-heart {
+    opacity: 0.6;
+  }
+}
