@@ -99,7 +99,7 @@ function App() {
           </div>
 
           <h1>
-            I made something
+            SO, I made something
             <br />
             for you
           </h1>
@@ -118,7 +118,7 @@ function App() {
           </button>
 
           <div className="music-hint">
-            🎧 pay attention to the music too
+            🎧 pay attention to the music too 😭
           </div>
 
           <div className="scroll-hint">
@@ -146,7 +146,7 @@ function App() {
           </h2>
 
           <p className="main-message">
-            I have something to tell you.
+            so i would like to ask you something 😢
           </p>
 
           <div className="divider">
@@ -154,7 +154,7 @@ function App() {
           </div>
 
           <p className="small-text">
-            Would you forgive me?
+            Will you forgive me?
           </p>
 
           <div className="buttons">
@@ -203,7 +203,7 @@ function App() {
 
           <p className="forgiven-message">
             abse se ulta bakwaas nhi karunga 
-            mummy kasam..!
+            mummy kasam !!!!!
           </p>
 
           {/* ================= CAT VIDEO ================= */}
