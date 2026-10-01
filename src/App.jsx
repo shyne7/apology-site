@@ -277,7 +277,7 @@ function App() {
           </div>
 
           <p className="note-footer">
-            that's it. i mean it. 🤍
+            that's it. i mean it bhai mummy kasam no lying. 🤍
           </p>
 
         </section>
