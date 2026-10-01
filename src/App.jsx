@@ -4,6 +4,7 @@ import "./App.css";
 function App() {
   const [started, setStarted] = useState(false);
   const [forgiven, setForgiven] = useState(false);
+  const [showNote, setShowNote] = useState(false);
 
   const [noPosition, setNoPosition] = useState({
     top: "72%",
@@ -26,7 +27,7 @@ function App() {
       });
     };
 
-    // Try to start music immediately when the site opens
+    // Try immediately
     startMusic();
 
     // Fallback if browser blocks autoplay
@@ -64,10 +65,22 @@ function App() {
     });
   };
 
+  // ================= YES =================
+
+  const handleYes = () => {
+    setForgiven(true);
+  };
+
+  // ================= FINAL NOTE =================
+
+  const openNote = () => {
+    setShowNote(true);
+  };
+
   return (
     <main className="page">
 
-      {/* ================= MUSIC ================= */}
+      {/* ================= AUDIO ================= */}
 
       <audio
         ref={audioRef}
@@ -82,26 +95,24 @@ function App() {
       <div className="background-glow glow-one"></div>
       <div className="background-glow glow-two"></div>
 
-      {/* ================= FLOATING HEARTS ================= */}
-
       <div className="floating-heart heart-one">♡</div>
       <div className="floating-heart heart-two">♡</div>
       <div className="floating-heart heart-three">♡</div>
       <div className="floating-heart heart-four">♡</div>
 
-      {/* ================= INTRO ================= */}
+      {/* ===================================================== */}
+      {/* ================= INTRO SCREEN ====================== */}
+      {/* ===================================================== */}
 
       {!started ? (
         <section className="intro-screen">
 
           <div className="intro-small">
-            bhai, Aditi heavy mistake ho gyi 😭
+            hey, Aditi
           </div>
 
           <h1>
-            So, I made you 
-            <br />
-            something
+            I made you something
           </h1>
 
           <p>
@@ -118,7 +129,7 @@ function App() {
           </button>
 
           <div className="music-hint">
-            🎧 pay attention to the music too 😭
+            🎧 pay attention to the music too
           </div>
 
           <div className="scroll-hint">
@@ -129,7 +140,9 @@ function App() {
 
       ) : !forgiven ? (
 
-        /* ================= APOLOGY ================= */
+        /* ===================================================== */
+        /* ================= APOLOGY SCREEN =================== */
+        /* ===================================================== */
 
         <section className="card apology-card">
 
@@ -146,7 +159,7 @@ function App() {
           </h2>
 
           <p className="main-message">
-            so i would like to ask you something 😢
+            I have something to tell you.
           </p>
 
           <div className="divider">
@@ -161,9 +174,9 @@ function App() {
 
             <button
               className="yes"
-              onClick={() => setForgiven(true)}
+              onClick={handleYes}
             >
-              Yes 😇
+              Yes ❤️
             </button>
 
             <button
@@ -183,9 +196,11 @@ function App() {
 
         </section>
 
-      ) : (
+      ) : !showNote ? (
 
-        /* ================= FORGIVEN ================= */
+        /* ===================================================== */
+        /* ================= FORGIVEN SCREEN ================= */
+        /* ===================================================== */
 
         <section className="card forgiven">
 
@@ -198,17 +213,15 @@ function App() {
           </div>
 
           <h1>
-            thank you maafi ke liye 🙏
+            YOU FORGAVE ME?
           </h1>
 
           <p className="forgiven-message">
-            abse se ulta bakwaas nhi karunga 
-            mummy kasam !!!!!
+            abse se ulta bakwaas nhi karunga aai sapat
           </p>
 
-          {/* ================= CAT VIDEO ================= */}
-
           <div className="cat-video-wrapper">
+
             <video
               className="cat-video"
               src="/cat.mp4"
@@ -217,10 +230,54 @@ function App() {
               muted
               playsInline
             />
+
           </div>
 
           <p className="small-text">
             Thank you miss aditi pandey 😭.
+          </p>
+
+          <button
+            className="note-button"
+            onClick={openNote}
+          >
+            wait... one last thing →
+          </button>
+
+        </section>
+
+      ) : (
+
+        /* ===================================================== */
+        /* ================= FINAL NOTE ======================= */
+        /* ===================================================== */
+
+        <section className="card note-page">
+
+          <div className="note-eyebrow">
+            okay wait...
+          </div>
+
+          <h1>
+            one last thing.
+          </h1>
+
+          <p className="note-intro">
+            this one is actually handwritten.
+          </p>
+
+          <div className="note-paper">
+
+            <img
+              src="/apology-note.png"
+              alt="Handwritten apology note"
+              className="apology-note"
+            />
+
+          </div>
+
+          <p className="note-footer">
+            that's it. i mean it. 🤍
           </p>
 
         </section>

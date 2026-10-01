@@ -1,18 +1,13 @@
-/* ================================
-   RESET
-================================ */
-
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html,
 body,
 #root {
-  width: 100%;
+  margin: 0;
   min-height: 100%;
+  width: 100%;
 }
 
 body {
@@ -23,21 +18,18 @@ body {
     "Segoe UI",
     sans-serif;
 
-  background: #080912;
-  color: white;
+  background: #05060d;
+  color: #f7f2f5;
 }
 
-/* ================================
-   MAIN PAGE
-================================ */
+button {
+  font: inherit;
+}
 
 .page {
-  min-height: 100vh;
-  min-height: 100dvh;
-
-  width: 100%;
-
   position: relative;
+  min-height: 100vh;
+  width: 100%;
   overflow: hidden;
 
   display: flex;
@@ -46,62 +38,49 @@ body {
 
   background:
     radial-gradient(
-      circle at 20% 15%,
-      rgba(255, 55, 135, 0.22),
+      circle at 50% 35%,
+      rgba(255, 79, 148, 0.08),
       transparent 35%
     ),
-    radial-gradient(
-      circle at 85% 85%,
-      rgba(83, 51, 255, 0.18),
-      transparent 35%
-    ),
-    linear-gradient(
-      145deg,
-      #130918 0%,
-      #090a16 48%,
-      #0b0a1c 100%
-    );
+    #05060d;
+
+  padding: 30px 20px;
 }
 
-/* ================================
-   BACKGROUND GLOWS
-================================ */
+/* ================= BACKGROUND ================= */
 
 .background-glow {
-  position: absolute;
+  position: fixed;
+  width: 500px;
+  height: 500px;
+
   border-radius: 50%;
+
+  filter: blur(100px);
+
   pointer-events: none;
-  filter: blur(80px);
+
+  opacity: 0.2;
 }
 
 .glow-one {
-  width: 260px;
-  height: 260px;
-
-  top: -100px;
-  left: -100px;
-
-  background: rgba(255, 36, 128, 0.18);
+  background: #ff4f94;
+  top: -250px;
+  left: -200px;
 }
 
 .glow-two {
-  width: 300px;
-  height: 300px;
-
-  bottom: -140px;
-  right: -120px;
-
-  background: rgba(77, 54, 255, 0.18);
+  background: #6d5dfc;
+  bottom: -300px;
+  right: -200px;
 }
 
-/* ================================
-   FLOATING HEARTS
-================================ */
+/* ================= FLOATING HEARTS ================= */
 
 .floating-heart {
-  position: absolute;
+  position: fixed;
 
-  color: rgba(255, 86, 157, 0.18);
+  color: rgba(255, 79, 148, 0.18);
 
   font-size: 30px;
 
@@ -111,29 +90,28 @@ body {
 }
 
 .heart-one {
-  top: 16%;
-  left: 20%;
-  animation-delay: 0s;
+  top: 14%;
+  left: 10%;
 }
 
 .heart-two {
-  top: 72%;
-  left: 17%;
-  font-size: 20px;
+  top: 25%;
+  right: 12%;
+
   animation-delay: 1.5s;
 }
 
 .heart-three {
-  top: 24%;
-  right: 16%;
-  font-size: 24px;
+  bottom: 18%;
+  left: 14%;
+
   animation-delay: 3s;
 }
 
 .heart-four {
-  bottom: 15%;
-  right: 20%;
-  font-size: 18px;
+  bottom: 12%;
+  right: 10%;
+
   animation-delay: 4.5s;
 }
 
@@ -141,91 +119,74 @@ body {
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
-    opacity: 0.35;
   }
 
   50% {
     transform: translateY(-18px) rotate(8deg);
-    opacity: 0.8;
   }
 }
 
-/* ================================
-   INTRO SCREEN
-================================ */
+/* ================= INTRO ================= */
 
 .intro-screen {
   position: relative;
   z-index: 2;
 
-  width: min(760px, 90%);
+  width: min(760px, 100%);
 
   text-align: center;
 
-  padding: 40px 20px;
+  padding: 30px;
 }
 
 .intro-small {
-  color: #ff5c9b;
+  color: #ff8fba;
 
   font-size: 14px;
-  font-weight: 700;
-
-  letter-spacing: 4px;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .intro-screen h1 {
-  font-size: clamp(52px, 8vw, 88px);
+  margin: 0;
 
-  line-height: 0.98;
+  font-size: clamp(48px, 8vw, 92px);
 
-  letter-spacing: -4px;
+  line-height: 0.95;
+
+  letter-spacing: -0.055em;
 
   font-weight: 800;
-
-  color: #ffffff;
-
-  margin-bottom: 28px;
-}
-
-.intro-screen h1::first-line {
-  color: #ff4f94;
 }
 
 .intro-screen p {
-  color: rgba(255, 255, 255, 0.62);
+  margin: 30px 0 34px;
 
-  font-size: 17px;
+  color: #aaa5ad;
+
+  font-size: 18px;
 
   line-height: 1.7;
-
-  margin-bottom: 34px;
 }
-
-/* ================================
-   OPEN BUTTON
-================================ */
 
 .open-button {
   border: 0;
 
-  padding: 16px 28px;
+  padding: 16px 25px;
 
   border-radius: 999px;
 
   background: #ff4f94;
   color: white;
 
-  font-size: 16px;
   font-weight: 700;
 
   cursor: pointer;
 
   box-shadow:
-    0 12px 35px rgba(255, 79, 148, 0.25);
+    0 12px 40px rgba(255, 79, 148, 0.22);
 
   transition:
     transform 0.2s ease,
@@ -244,128 +205,107 @@ body {
   transform: translateY(-3px);
 
   box-shadow:
-    0 18px 45px rgba(255, 79, 148, 0.38);
+    0 18px 45px rgba(255, 79, 148, 0.3);
 }
 
 .open-button:hover span {
-  transform: translateX(5px);
+  transform: translateX(4px);
 }
 
 .music-hint {
-  margin-top: 22px;
+  margin-top: 25px;
 
-  color: rgba(255, 255, 255, 0.45);
+  color: #77727a;
 
   font-size: 13px;
-
-  letter-spacing: 0.5px;
 }
 
 .scroll-hint {
-  margin-top: 55px;
+  margin-top: 65px;
 
-  color: rgba(255, 255, 255, 0.3);
+  color: #4f4b52;
 
   font-size: 12px;
-
-  letter-spacing: 1px;
 }
 
-/* ================================
-   MAIN CARD
-================================ */
+/* ================= CARD ================= */
 
 .card {
   position: relative;
   z-index: 2;
 
-  width: min(520px, 90%);
+  width: min(700px, 100%);
 
-  padding: 52px 46px;
+  padding: 55px 50px;
 
-  border-radius: 24px;
+  text-align: center;
+
+  border-radius: 30px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(23, 26, 49, 0.96),
-      rgba(12, 14, 31, 0.96)
+      rgba(20, 21, 32, 0.94),
+      rgba(9, 10, 18, 0.94)
     );
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.07);
 
   box-shadow:
-    0 30px 100px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    0 35px 100px rgba(0, 0, 0, 0.55),
+    0 0 70px rgba(255, 79, 148, 0.05);
 
-  text-align: center;
+  backdrop-filter: blur(20px);
 }
 
-/* ================================
-   EMOJI
-================================ */
+/* ================= APOLOGY ================= */
 
 .emoji {
-  font-size: 46px;
+  font-size: 48px;
 
-  margin-bottom: 22px;
-
-  line-height: 1;
+  margin-bottom: 20px;
 }
 
-/* ================================
-   EYEBROW
-================================ */
-
 .eyebrow {
-  color: #ff5c9b;
+  color: #ff78ad;
 
-  font-size: 11px;
+  font-size: 12px;
 
-  font-weight: 800;
-
-  letter-spacing: 4px;
+  letter-spacing: 0.16em;
 
   text-transform: uppercase;
 
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
-/* ================================
-   APOLOGY TEXT
-================================ */
-
 .apology-card h2 {
-  font-size: clamp(32px, 6vw, 46px);
+  margin: 0;
 
-  line-height: 1.05;
+  font-size: clamp(38px, 6vw, 62px);
 
-  letter-spacing: -1.5px;
+  line-height: 1;
 
-  margin-bottom: 20px;
-
-  color: #ffffff;
+  letter-spacing: -0.045em;
 }
 
 .main-message {
-  color: rgba(255, 255, 255, 0.65);
+  margin: 28px 0 0;
 
-  font-size: 17px;
+  color: #bbb6bd;
 
-  line-height: 1.6;
+  font-size: 19px;
 }
 
-/* ================================
-   DIVIDER
-================================ */
-
 .divider {
+  width: 100%;
+
   display: flex;
-
   align-items: center;
-  gap: 15px;
+  gap: 18px;
 
-  margin: 30px 0;
+  margin: 35px 0 25px;
+
+  color: #ff4f94;
 }
 
 .divider::before,
@@ -376,153 +316,125 @@ body {
 
   flex: 1;
 
-  background: rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 79, 148, 0.35)
+    );
 }
 
-.divider span {
-  color: #ff4f94;
-
-  font-size: 18px;
+.divider::after {
+  background:
+    linear-gradient(
+      to left,
+      transparent,
+      rgba(255, 79, 148, 0.35)
+    );
 }
-
-/* ================================
-   SMALL TEXT
-================================ */
 
 .small-text {
-  color: rgba(255, 255, 255, 0.48);
+  color: #8f8a91;
 
   font-size: 14px;
 
   line-height: 1.6;
 }
 
-/* ================================
-   YES / NO BUTTON AREA
-================================ */
+/* ================= BUTTON AREA ================= */
 
 .buttons {
   position: relative;
 
   width: 100%;
+  height: 190px;
 
-  height: 150px;
-
-  margin-top: 12px;
+  margin-top: 20px;
 }
 
-/* ================================
-   YES BUTTON
-================================ */
-
-.yes {
+.yes,
+.no {
   position: absolute;
-
-  top: 52%;
-
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
-  z-index: 2;
 
   border: 0;
 
-  padding: 14px 26px;
+  padding: 14px 25px;
 
   border-radius: 999px;
-
-  background: #ff4f94;
-
-  color: white;
-
-  font-size: 15px;
 
   font-weight: 700;
 
   cursor: pointer;
-
-  box-shadow:
-    0 10px 30px rgba(255, 79, 148, 0.25);
 
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
 }
 
+.yes {
+  top: 52%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background: #ff4f94;
+
+  color: white;
+
+  box-shadow:
+    0 12px 35px rgba(255, 79, 148, 0.2);
+}
+
 .yes:hover {
   transform: translate(-50%, -50%) scale(1.05);
 
   box-shadow:
-    0 14px 40px rgba(255, 79, 148, 0.4);
+    0 16px 45px rgba(255, 79, 148, 0.32);
 }
 
-/* ================================
-   NO BUTTON
-================================ */
+/* ================= SMOOTH NO BUTTON ================= */
 
 .no {
-  position: absolute;
+  background: #191a25;
+
+  color: #b9b5bc;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
 
   transform: translate(-50%, -50%);
 
-  z-index: 5;
-
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
-  padding: 12px 22px;
-
-  border-radius: 999px;
-
-  background: #191c32;
-
-  color: rgba(255, 255, 255, 0.75);
-
-  font-size: 14px;
-
-  font-weight: 600;
-
-  cursor: pointer;
+  white-space: nowrap;
 
   transition:
-    top 0.18s ease,
-    left 0.18s ease;
+    top 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    left 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-/* ================================
-   FORGIVEN SCREEN
-================================ */
-
-.forgiven {
-  padding-top: 44px;
-  padding-bottom: 44px;
-}
+/* ================= FORGIVEN ================= */
 
 .forgiven h1 {
-  font-size: clamp(34px, 7vw, 52px);
+  margin: 0;
 
-  line-height: 1;
+  font-size: clamp(42px, 7vw, 72px);
 
-  letter-spacing: -2px;
+  line-height: 0.95;
 
-  color: #ff4f94;
-
-  margin-bottom: 20px;
+  letter-spacing: -0.05em;
 }
 
 .forgiven-message {
-  color: rgba(255, 255, 255, 0.72);
+  margin: 25px auto 0;
 
-  font-size: 15px;
+  color: #c3bec5;
+
+  font-size: 18px;
 
   line-height: 1.6;
-
-  margin-bottom: 4px;
 }
 
-/* ================================
-   CAT VIDEO
-================================ */
+/* ================= CAT VIDEO ================= */
 
 .cat-video-wrapper {
   width: 210px;
@@ -566,121 +478,177 @@ body {
   object-fit: cover;
 }
 
-/* ================================
-   MOBILE
-================================ */
+/* ================= NOTE BUTTON ================= */
+
+.note-button {
+  margin-top: 22px;
+
+  border: 1px solid rgba(255, 79, 148, 0.25);
+
+  background: rgba(255, 79, 148, 0.08);
+
+  color: #ff8fba;
+
+  padding: 13px 20px;
+
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.note-button:hover {
+  background: rgba(255, 79, 148, 0.14);
+
+  border-color: rgba(255, 79, 148, 0.45);
+
+  transform: translateY(-2px);
+}
+
+/* ===================================================== */
+/* ================= FINAL NOTE PAGE =================== */
+/* ===================================================== */
+
+.note-page {
+  width: min(800px, 100%);
+
+  padding: 45px 45px 50px;
+}
+
+.note-eyebrow {
+  color: #ff78ad;
+
+  font-size: 12px;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 16px;
+}
+
+.note-page h1 {
+  margin: 0;
+
+  font-size: clamp(40px, 6vw, 68px);
+
+  line-height: 1;
+
+  letter-spacing: -0.05em;
+}
+
+.note-intro {
+  margin: 18px 0 30px;
+
+  color: #aaa5ad;
+
+  font-size: 16px;
+}
+
+/* ================= HANDWRITTEN NOTE ================= */
+
+.note-paper {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  padding: 12px;
+}
+
+.apology-note {
+  display: block;
+
+  width: 100%;
+
+  max-width: 650px;
+
+  height: auto;
+
+  border-radius: 4px;
+
+  background: white;
+
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.45);
+
+  transform: rotate(-0.6deg);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.apology-note:hover {
+  transform: rotate(0deg) scale(1.01);
+
+  box-shadow:
+    0 25px 65px rgba(0, 0, 0, 0.5);
+}
+
+.note-footer {
+  margin: 28px 0 0;
+
+  color: #8f8a91;
+
+  font-size: 14px;
+
+  font-style: italic;
+}
+
+/* ================= MOBILE ================= */
 
 @media (max-width: 600px) {
 
   .page {
-    padding: 24px 0;
+    padding: 20px 14px;
   }
 
   .intro-screen {
-    width: 92%;
-
-    padding: 30px 10px;
-  }
-
-  .intro-small {
-    font-size: 11px;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 20px;
+    padding: 20px 8px;
   }
 
   .intro-screen h1 {
-    font-size: clamp(43px, 12vw, 64px);
-
-    letter-spacing: -2.5px;
-
-    line-height: 1;
+    font-size: clamp(46px, 14vw, 68px);
   }
 
   .intro-screen p {
-    font-size: 15px;
-
-    margin-bottom: 28px;
-  }
-
-  .open-button {
-    padding: 14px 24px;
-
-    font-size: 15px;
-  }
-
-  .scroll-hint {
-    margin-top: 40px;
+    font-size: 16px;
   }
 
   .card {
-    width: calc(100% - 32px);
-
     padding: 38px 22px;
 
-    border-radius: 22px;
-  }
-
-  .emoji {
-    font-size: 40px;
-
-    margin-bottom: 18px;
-  }
-
-  .eyebrow {
-    font-size: 9px;
-
-    letter-spacing: 3px;
-
-    line-height: 1.6;
-
-    margin-bottom: 18px;
+    border-radius: 24px;
   }
 
   .apology-card h2 {
-    font-size: 34px;
-
-    letter-spacing: -1px;
+    font-size: 42px;
   }
 
   .main-message {
-    font-size: 15px;
-  }
-
-  .divider {
-    margin: 25px 0;
+    font-size: 17px;
   }
 
   .buttons {
-    height: 170px;
-  }
-
-  .yes {
-    padding: 13px 23px;
-
-    font-size: 14px;
-  }
-
-  .no {
-    padding: 11px 19px;
-
-    font-size: 13px;
-  }
-
-  .forgiven {
-    padding-top: 34px;
-    padding-bottom: 34px;
+    height: 210px;
   }
 
   .forgiven h1 {
-    font-size: 35px;
-
-    letter-spacing: -1.5px;
+    font-size: 48px;
   }
 
   .forgiven-message {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .cat-video-wrapper {
@@ -692,37 +660,57 @@ body {
     border-radius: 18px;
   }
 
-  .small-text {
-    font-size: 13px;
+  .note-page {
+    padding: 34px 16px 38px;
+  }
+
+  .note-page h1 {
+    font-size: 46px;
+  }
+
+  .note-intro {
+    font-size: 15px;
+
+    margin-bottom: 22px;
+  }
+
+  .note-paper {
+    padding: 4px;
+  }
+
+  .apology-note {
+    max-width: 100%;
+
+    transform: rotate(0deg);
   }
 
   .floating-heart {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 
-/* ================================
-   VERY SMALL PHONES
-================================ */
+/* ================= SMALL PHONES ================= */
 
 @media (max-width: 380px) {
 
   .card {
-    width: calc(100% - 22px);
-
-    padding: 32px 18px;
+    padding: 32px 17px;
   }
 
   .apology-card h2 {
-    font-size: 30px;
+    font-size: 38px;
   }
 
-  .buttons {
-    height: 175px;
+  .forgiven h1 {
+    font-size: 42px;
   }
 
   .cat-video-wrapper {
     width: 160px;
     height: 128px;
+  }
+
+  .buttons {
+    height: 220px;
   }
 }
