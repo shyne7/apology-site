@@ -99,9 +99,9 @@ function App() {
           </div>
 
           <h1>
-            SO, I made something
+            So, I made you 
             <br />
-            for you
+            something
           </h1>
 
           <p>
